@@ -5,6 +5,7 @@ async function cargarUsuarios() {
     try {
         let respuesta = await fetch("../json/usuarios.json");
         usuarios = await respuesta.json();
+        console.log("Usuarios cargados: ", usuarios)
     } catch (error) {
         console.error("Error cargando los usuarios:", error);
     }
