@@ -3,7 +3,7 @@ let usuarios = [];
 // Cargar datos desde usuarios.json
 async function cargarUsuarios() {
     try {
-        let respuesta = await fetch("../json/usuarios.json");
+        let respuesta = await fetch("https://itscris24.github.io/proyecto/json/usuarios.json");
         usuarios = await respuesta.json();
         console.log("Usuarios cargados: ", usuarios)
     } catch (error) {
