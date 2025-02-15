@@ -24,7 +24,7 @@ const ingresar = () => {
 
     if (usuarioEncontrado) {
         alert(`Bienvenido, ${usuarioEncontrado.usuario}. Rol: ${usuarioEncontrado.rol}`);
-        window.location.href = "../html/iniciouser.html"
+        window.location.href = "https://itscris24.github.io/proyecto/html/iniciouser.html"
     } else {
         alert("Usuario o contraseña incorrectos.");
     }
