@@ -1,8 +1,10 @@
-// js/proteger.js
 document.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.getItem("sesionIniciada") !== "true") {
+    let sesion = localStorage.getItem("sesionIniciada");
+    console.log("Estado de sesión:", sesion); // Para depuración
+
+    if (sesion !== "true") { // Comparación correcta
         alert("Debes iniciar sesión para acceder.");
-        window.location.href = "../index.html"; // Redirige a la página de inicio de sesión
+        window.location.href = "../index.html"; // Redirigir al login
     } else {
         // Evitar que el usuario regrese con el botón de retroceso
         history.pushState(null, null, location.href);

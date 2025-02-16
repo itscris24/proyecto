@@ -18,18 +18,26 @@ const ingresar = () => {
     let usuarioInput = document.getElementById("Usuario").value;
     let contraseñaInput = document.getElementById("Contraseña").value;
 
-    let usuarioEncontrado = usuarios.find(user => 
+    let usuarioEncontrado = usuarios.find(user =>
         user.usuario === usuarioInput && user.contraseña === contraseñaInput
     );
 
     if (usuarioEncontrado) {
         alert(`Bienvenido, ${usuarioEncontrado.usuario}. Rol: ${usuarioEncontrado.rol}`);
+
+        // Guardar en localStorage que la sesión está iniciada
         localStorage.setItem("sesionIniciada", "true");
-        window.location.href = "../html/iniciouser.html"
+
+        // Verificar si se guardó correctamente
+        console.log("Sesión iniciada:", localStorage.getItem("sesionIniciada"));
+
+        // Redirigir a la página de usuario
+        window.location.href = "../html/iniciouser.html";
     } else {
         alert("Usuario o contraseña incorrectos.");
     }
-}
+};
+
 
 const limpiar = () => {
     document.getElementById("Usuario").value = "";
