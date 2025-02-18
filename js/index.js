@@ -32,7 +32,7 @@ const ingresar = () => {
         console.log("Sesión iniciada:", localStorage.getItem("sesionIniciada"));
 
         // Redirigir a la página de usuario
-        window.location.href = "https://itscris24.github.io/proyecto/html/iniciouser.html";
+        window.location.href = "/html/iniciouser.html";
     } else {
         alert("Usuario o contraseña incorrectos.");
     }
