@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/menustyles.css">
+    <link rel="stylesheet" href="../css/gestion.css">
+    <title>Gestión de Usuarios</title>
+</head>
+<body>
+    
+    <header>
+        <img src="../img/wildfire_monitoring_logo (3).png" alt="">
+        <h2>Sistema de Monitoreo Ambiental de Incendios Forestales</h2>
+    </header>
+
+    <ul class="menu">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="alertasynot.html">Alertas y Notificaciones</a></li>
+        <li><a href="informacion.html">Información</a></li>
+        <li><a href="contactoysopor.html">Contacto y Soporte</a></li>
+        <li><a href="administración.html">Panel de Administración</a></li>
+        <li><a href="../index.html" onclick="cerrarsesion()">Cerrar Sesión</a></li>
+    </ul>
+    
+        
+    <main>
+
+        <h1>Registro de Usuarios Nuevos</h1>
+
+        <center>
+            <div class="registro">
+                <h1>Ingresa la información del nuevo Usuario</h1>
+                <label for="Número">Número de Celular</label>
+                <input type="tel" id="Número" placeholder="Ejemplo: 3333333333" inputmode="numeric">
+                <label for="Usuario">Usuario</label>
+                <input type="text" id="Usuario" placeholder="Usuario"><br>
+                <label for="Roles">Rol</label>
+                <select name="Roles" id="Roles">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Usuario">Usuario</option>
+                </select>
+                <label for="Contraseña">Contraseña</label>
+                <input type="password" id="Contraseña" placeholder="Contraseña"><br>
+                <button type="button" onclick="ingresar()">Registrar</button>
+                <button type="button" onclick="limpiar()">Limpiar</button>
+            </div>
+        </center>
+        
+    </main>
+        
+
+    <script src="../js/cerrarsesion.js"></script>
+    <footer>
+        <p>&copy; 2025 SMAIF - Todos los derechos reservados. Contacto: <u>SmaifWeb@gmail.com</u></p>
+    </footer>
+</body>
+</html>

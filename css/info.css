@@ -1,6 +1,28 @@
+header {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header img {
+    height: 100px; /* Ajusta el tamaño del logo */
+    width: 100px;
+    margin-right: 15px;
+}
+  
+header h2 {
+    color: #1B3C34;
+    font-size: 22px;
+    font-weight: bold;
+}
+
 h1, h2, h3 {
     color: #1B3C34;
 }
+
 
 body {
     display: flex;

@@ -44,12 +44,24 @@ body {
 
 
 header {
-    width: 100%;
     display: flex;
+    align-items: center;
     background: white;
     padding: 10px 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    align-items: flex-start;
+    width: 100%;
+}
+
+header img {
+    height: 100px; /* Ajusta el tamaño del logo */
+    width: 100px;
+    margin-right: 15px;
+}
+  
+header h2 {
+    color: #1B3C34;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 
@@ -97,19 +109,9 @@ header {
     margin-bottom: 15px;
 }
 
-.qr-container {
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    margin-top: 20px; /* Espacio con el texto de arriba */
-}
-
-.qr-container img {
-    width: 200px !important; /* Ajusta el tamaño de la imagen */
+.qr img {
+    width: 150px; /* Ajusta el ancho según necesites */
     height: auto; /* Mantiene la proporción */
-    border-radius: 15px; /* Bordes curveados */
-    background-color: #2D0E3A; /* Fondo para el QR */
-    padding: 10px; /* Espaciado dentro del fondo */
 }   
 
 
