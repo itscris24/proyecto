@@ -22,7 +22,11 @@
         <li><a href="alertasynot.html">Alertas y Notificaciones</a></li>
         <li><a href="informacion.html">Información</a></li>
         <li><a href="contactoysopor.html">Contacto y Soporte</a></li>
-        <li><a href="administración.html">Panel de Administración</a></li>
+        <select name="Administración" id="Administración">
+            <option value="#">Panel de Administración</option>
+            <option value="gestion.html">Gestión de Usuarios</option>
+            <option value="administración.html">Sensores</option>
+        </select>
         <li><a href="../index.html" onclick="cerrarsesion()">Cerrar Sesión</a></li>
     </ul>
     
@@ -139,7 +143,8 @@
         
     </main>
 
-
+    <script src="../js/administración.js"></script>
+    <script src="../js/proteger.js"></script>
     <script src="../js/cerrarsesion.js"></script>
     <footer>
         <p>&copy; 2025 SMAIF - Todos los derechos reservados. Contacto: <u>SmaifWeb@gmail.com</u></p>

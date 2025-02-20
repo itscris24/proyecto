@@ -36,91 +36,33 @@
                 Además, SMAIF mantiene un historial de alertas pasadas, lo que permite un análisis detallado de patrones de riesgo y facilita la toma de decisiones basadas en datos históricos. Esta funcionalidad no solo optimiza la respuesta ante emergencias, sino que también contribuye a la planificación estratégica para la prevención de incendios en el futuro.
             </p>
             <h3>Alertas Activas</h3>
-            <table border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha</th>
-                    <th>Nivel de Riesgo</th>
-                    <th>Ubicación</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-                <tr>
-                    <td>001</td>
-                    <td>2025-02-06</td>
-                    <td>🔴 Alto</td>
-                    <td>Zona Norte</td>
-                    <td>Activa</td>
-                    <td>🔔 Notificar</td>
-                </tr>
-                <tr>
-                    <td>002</td>
-                    <td>2025-02-05</td>
-                    <td>🟡 Medio</td>
-                    <td>Bosque Verde</td>
-                    <td>Activa</td>
-                    <td>📍 Revisar</td>
-                </tr>
-                <tr>
-                    <td>003</td>
-                    <td>2025-02-04</td>
-                    <td>🔴 Alto</td>
-                    <td>Selva Azul</td>
-                    <td>Activa</td>
-                    <td>🔔 Notificar</td>
-                </tr>
-                <tr>
-                    <td>004</td>
-                    <td>2025-02-03</td>
-                    <td>🟢 Bajo</td>
-                    <td>Llanura Roja</td>
-                    <td>En Observación</td>
-                    <td>🔄 Actualizar</td>
-                </tr>
+            <table border="1" id="tabla2">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Nivel de Riesgo</th>
+                        <th>Ubicación</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
     
             <h3>Alertas Pasadas</h3>
-            <table border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>Fecha</th>
-                    <th>Nivel de Riesgo</th>
-                    <th>Ubicación</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-                <tr>
-                    <td>101</td>
-                    <td>2025-01-30</td>
-                    <td>🔴 Alto</td>
-                    <td>Sierra Alta</td>
-                    <td>Controlada</td>
-                    <td>🚒 Brigada enviada</td>
-                </tr>
-                <tr>
-                    <td>102</td>
-                    <td>2025-01-28</td>
-                    <td>🟡 Medio</td>
-                    <td>Lago Verde</td>
-                    <td>Resuelta</td>
-                    <td>🌧️ Lluvia extinguió fuego</td>
-                </tr>
-                <tr>
-                    <td>103</td>
-                    <td>2025-01-25</td>
-                    <td>🔴 Alto</td>
-                    <td>Cañón del Sol</td>
-                    <td>Controlada</td>
-                    <td>🚁 Helicóptero con agua</td>
-                </tr>
-                <tr>
-                    <td>004</td>
-                    <td>2025-02-03</td>
-                    <td>🟢 Bajo</td>
-                    <td>Llanura Roja</td>
-                    <td>En Observación</td>
-                    <td>🔄 Actualizar</td>
-                </tr>
+            <table border="1" id="tabla3">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fecha</th>
+                        <th>Nivel de Riesgo</th>
+                        <th>Ubicación</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
             </table>
 
             <p>
@@ -135,41 +77,16 @@
             <p>El sistema de clasificación de riesgos en SMAIF permite evaluar el nivel de amenaza de incendio en tiempo real, basándose en el análisis de datos ambientales recolectados por sensores.</p>
 
             <h3>Categorías de Riesgo</h3>
-            <table border="1">
+            <table border="1" id="tabla1">
                 <thead>
                     <tr>
                         <th>Nivel de Riesgo</th>
                         <th>Descripción</th>
-                        <th>condiciones Ambientales</th>
+                        <th>Condiciones Ambientales</th>
                         <th>Acciones Recomendadas</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Bajo 🟢</td>
-                        <td>No hay peligro inmediato.</td>
-                        <td>Temp: Baja/Media Humedad: Alta Gases inflamables: Ausentes Viento: Débil</td>
-                        <td>Monitoreo Unitario</td>
-                    </tr>
-                    <tr>
-                        <td>Medio 🟡</td>
-                        <td>Posibles condiciones de incendio. Precaución recomendada.</td>
-                        <td>Temp: Media/Alta Humedad: Media Gases inflamables: Baja concentración Viento: Moderado</td>
-                        <td>Alerta preventiva y monitoreo constante</td>
-                    </tr>
-                    <tr>
-                        <td>Alto 🟠</td>
-                        <td>Condiciones propicias para un incendio. Precaución extrema.</td>
-                        <td>Temp: Media/Alta Humedad: Media Gases inflamables: Baja concentración Viento: ModeradoTemp: Alta Humedad: Baja Gases inflamables: Presentes en niveles preocupantes Viento: Fuerte</td>
-                        <td>Notificación a autoridades, aumento de vigilancia</td>
-                    </tr>
-                    <tr>
-                        <td>Crítico 🔴</td>
-                        <td>Peligro inminente de incendio. Respuesta inmediata requerida.</td>
-                        <td>Temp: Muy alta Humedad: Muy baja Gases inflamables: Alta concentración Viento: Intenso</td>
-                        <td>Activación de protocolos de emergencia y brigadas de respuesta</td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
 
             <h2>Cálculo del Nivel de Riesgo</h2>
@@ -179,7 +96,7 @@
             </p>
 
             <h3>Ejemplo de Puntuación por Variable</h3>
-            <table border="1">
+            <table border="1" id="tabla4">
                 <thead>
                     <tr>
                         <th>Variable</th>
@@ -189,29 +106,7 @@
                         <th>Crítico (4 puntos)</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><b>Temperatura</b></td>
-                        <td>&lt; 25°</td>
-                        <td> 25°C - 35°C</td>
-                        <td>35°C - 40°C</td>
-                        <td>&gt; 40°C</td>
-                    </tr>
-                    <tr>
-                        <td><b>Humedad</b></td>
-                        <td>&gt; 60%</td>
-                        <td>40% - 60%</td>
-                        <td>20% - 40%</td>
-                        <td>&lt; 20%</td>
-                    </tr>
-                    <tr>
-                        <td><b>Gases inflamables</b></td>
-                        <td>No detectados</td>
-                        <td>Baja concentración</td>
-                        <td>Moderada concentración</td>
-                        <td>Alta concentración</td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
 
             <h3>Nivel de Riesgo Según Puntuación</h3>
@@ -225,7 +120,9 @@
         
     </main>
 
+    <script src="../js/proteger.js"></script>
     <script src="../js/alertas.js"></script>
+    <script src="../js/tablas.js"></script>
     <script src="../js/cerrarsesion.js"></script>
     <footer>
         <p>&copy; 2025 SMAIF - Todos los derechos reservados. Contacto: <u>SmaifWeb@gmail.com</u></p>

@@ -31,6 +31,18 @@ main {
     gap: 20px;
 }
 
+select{
+    cursor: pointer;
+    border: 0;
+    font-family: "Poppins", serif;
+    background-color: #1B3C34;
+    color: white;
+}
+
+select:hover{
+    border-radius: 10px;
+    background-color: #D95D39;
+}
 h2, h3{
     color: #1B3C34;
 }
