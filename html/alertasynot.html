@@ -12,16 +12,25 @@
 </head>
 <body>
     <header>
-        <img src="../img/wildfire_monitoring_logo (3).png" alt="">
-        <h2>Sistema de Monitoreo Ambiental de Incendios Forestales</h2>
+        <div class="header-left">
+            <img src="../img/wildfire_monitoring_logo (3).png" alt="Logo">
+            <h2>Sistema de Monitoreo Ambiental de Incendios Forestales</h2>
+        </div>
+        <div class="header-right">
+            <span id="user-info"></span>
+        </div>
     </header>
 
     <ul class="menu">
-        <li><a href="iniciouser.html">Inicio</a></li>
-        <li><a href="#">Alertas y Notificaiones</a></li>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="alertasynot.html">Alertas y Notificaciones</a></li>
         <li><a href="informacion.html">Información</a></li>
         <li><a href="contactoysopor.html">Contacto y Soporte</a></li>
-        <li><a href="administración.html">Panel de Administración</a></li>
+        <select name="Administración" id="Administración" onchange="redireccionar()">
+            <option value="#">Panel de Administración</option>
+            <option value="gestion.html">Gestión de Usuarios</option>
+            <option value="sensores.html">Sensores</option>
+        </select>
         <li><a href="../index.html" onclick="cerrarsesion()">Cerrar Sesión</a></li>
     </ul>
 
@@ -119,9 +128,9 @@
         </section>
         
     </main>
-
+    <script src="../js/index.js"></script>
+    <script src="../js/administración.js"></script>
     <script src="../js/proteger.js"></script>
-    <script src="../js/alertas.js"></script>
     <script src="../js/tablas.js"></script>
     <script src="../js/cerrarsesion.js"></script>
     <footer>

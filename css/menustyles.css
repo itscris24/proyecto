@@ -4,25 +4,24 @@ body {
 }
 
 ul.menu {
-    position: sticky;
-    top: 0;
+    position: sticky; /* Cambiado de sticky a relative */
     z-index: 1000;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border-radius: 10px;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: #1B3C34;
 }
 
 .menu li {
-    float: left;
+    display: inline-block; /* Cambiado de float: left a inline-block */
+    position: relative;
 }
 
-.menu li a{
+.menu li a {
     display: block;
     color: white;
     text-align: center;
@@ -34,4 +33,18 @@ ul.menu {
     border-radius: 10px;
     background-color: #D95D39;
 }
+
+.menu select {
+    background-color: #1B3C34;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.menu select:hover {
+    background-color: #D95D39;
+}
+
 

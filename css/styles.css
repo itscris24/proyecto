@@ -79,6 +79,32 @@ button:hover {
     background-color: #0a1814; /* Verde más oscuro al pasar el mouse */
 }
 
+.terminos div {
+    display: flex;
+    align-items: center; /* Alinea el checkbox con el texto */
+    gap: 8px; /* Espacio entre el checkbox y el texto */
+    font-size: 14px;
+}
+
+.terminos input {
+    width: 16px;
+    height: 16px;
+}
+
+.terminos label {
+    cursor: pointer;
+}
+
+.terminos input {
+    cursor: pointer;
+}
+
+.subtexto {
+    font-size: 12px;
+    color: gray;
+    display: block; /* Hace que el texto adicional esté debajo */
+}
+
 footer {
     position: fixed;
     bottom: 0;

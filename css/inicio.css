@@ -1,22 +1,30 @@
 header {
     display: flex;
-    align-items: center;
-    background: white;
-    padding: 10px 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    justify-content: space-between; /* Separa izquierda y derecha */
+    align-items: center; /* Alinea verticalmente */
+    padding: 10px 20px;
+    background-color: #f4f4f4; /* Color de fondo opcional */
 }
 
-header img {
-    height: 100px; /* Ajusta el tamaño del logo */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    height: 100px; /* Ajusta el tamaño del logo */
     width: 100px;
     margin-right: 15px;
+
 }
-  
-header h2 {
-    color: #1B3C34;
-    font-size: 22px;
+
+.header-right {
+    display: flex;
+    font-size: 18px;
     font-weight: bold;
+    color: #1B3C34; /* Color del texto */
 }
+ 
 
 body {
     display: flex;
@@ -43,6 +51,7 @@ select:hover{
     border-radius: 10px;
     background-color: #D95D39;
 }
+
 h2, h3{
     color: #1B3C34;
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administrador</title>
+    <title>Sensores</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -12,16 +12,25 @@
 </head>
 <body>
     <header>
-        <img src="../img/wildfire_monitoring_logo (3).png" alt="">
-        <h2>Sistema de Monitoreo Ambiental de Incendios Forestales</h2>
+        <div class="header-left">
+            <img src="../img/wildfire_monitoring_logo (3).png" alt="Logo">
+            <h2>Sistema de Monitoreo Ambiental de Incendios Forestales</h2>
+        </div>
+        <div class="header-right">
+            <span id="user-info"></span>
+        </div>
     </header>
 
     <ul class="menu">
-        <li><a href="iniciouser.html">Inicio</a></li>
+        <li><a href="#">Inicio</a></li>
         <li><a href="alertasynot.html">Alertas y Notificaciones</a></li>
         <li><a href="informacion.html">Información</a></li>
         <li><a href="contactoysopor.html">Contacto y Soporte</a></li>
-        <li><a href="#">Panel de Administración</a></li>
+        <select name="Administración" id="Administración" onchange="redireccionar()">
+            <option value="#">Panel de Administración</option>
+            <option value="gestion.html">Gestión de Usuarios</option>
+            <option value="sensores.html">Sensores</option>
+        </select>
         <li><a href="../index.html" onclick="cerrarsesion()">Cerrar Sesión</a></li>
     </ul>
     
@@ -59,7 +68,8 @@
                 </table>
             </div>
         </div>
-        
+        <script src="../js/index.js"></script>
+        <script src="../js/administración.js"></script>
         <script src="../js/sensores.js"></script>
         <script src="../js/proteger.js"></script>
         <script src="../js/cerrarsesion.js"></script>

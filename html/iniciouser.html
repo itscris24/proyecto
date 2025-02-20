@@ -13,8 +13,13 @@
 <body>
 
     <header>
-        <img src="../img/wildfire_monitoring_logo (3).png" alt="">
-        <h2>Sistema de Monitoreo Ambiental de Incendios Forestales</h2>
+        <div class="header-left">
+            <img src="../img/wildfire_monitoring_logo (3).png" alt="Logo">
+            <h2>Sistema de Monitoreo Ambiental de Incendios Forestales</h2>
+        </div>
+        <div class="header-right">
+            <span id="user-info"></span>
+        </div>
     </header>
 
     <ul class="menu">
@@ -25,7 +30,7 @@
         <select name="Administración" id="Administración" onchange="redireccionar()">
             <option value="#">Panel de Administración</option>
             <option value="gestion.html">Gestión de Usuarios</option>
-            <option value="administración.html">Sensores</option>
+            <option value="sensores.html">Sensores</option>
         </select>
         <li><a href="../index.html" onclick="cerrarsesion()">Cerrar Sesión</a></li>
     </ul>
@@ -143,6 +148,7 @@
         
     </main>
 
+    <script src="../js/index.js"></script>
     <script src="../js/administración.js"></script>
     <script src="../js/proteger.js"></script>
     <script src="../js/cerrarsesion.js"></script>
