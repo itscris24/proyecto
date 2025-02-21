@@ -38,6 +38,18 @@
         
     <main>
 
+        <h1>Tabla de Usuarios</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Contraseña</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody id="tablaUsuarios"></tbody>
+        </table>
+
         <h1>Registro de Usuarios Nuevos</h1>
 
         <center>
@@ -53,12 +65,14 @@
                     <option value="Administrador">Administrador</option>
                     <option value="Usuario">Usuario</option>
                 </select>
-                <button type="button" onclick="ingresar()">Registrar</button>
-                <button type="button" onclick="limpiar()">Limpiar</button>
+                <button type="button" onclick="registrar()">Registrar</button>
+                <button type="button" onclick="limpiarFormulario()">Limpiar</button>
             </div>
         </center>
         
     </main>
+
+    <script src="../js/gestion.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/administración.js"></script>
     <script src="../js/proteger.js"></script>
