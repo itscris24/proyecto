@@ -86,7 +86,7 @@ const actualizarUsuarios = async (usuarios) => {
                 "Content-Type": "application/json",
                 "X-Master-Key": API_KEY
             },
-            body: JSON.stringify(usuarios) // ✅ Guarda solo el array
+            body: JSON.stringify(usuarios) 
         });
 
         cargarUsuarios();
@@ -101,7 +101,6 @@ const editarUsuario = async (index, campo, valor) => {
         let response = await fetch(URL, { headers: { "X-Master-Key": API_KEY } });
         let data = await response.json();
 
-        // ✅ Asegurar que record existe y es un array
         let usuarios = data.record;
         if (!usuarios || !Array.isArray(usuarios)) {
             console.error("❌ Error: La estructura de datos no es válida.");
@@ -110,17 +109,14 @@ const editarUsuario = async (index, campo, valor) => {
 
         console.log("✅ Usuarios antes de editar:", usuarios); // Verificar estructura en consola
 
-        // ✅ Verificar si el índice es válido
         if (index < 0 || index >= usuarios.length) {
             console.error("❌ Error: Índice fuera de rango.");
             return;
         }
 
-        // ✅ Modificar el usuario en la posición indicada
         usuarios[index][campo] = valor;
         console.log(`✏️ Editando usuario ${index}:`, usuarios[index]); // Verificar en consola
 
-        // ✅ Guardar los cambios en JSONBin
         await actualizarUsuarios(usuarios);
     } catch (error) {
         console.error("❌ Error al editar usuario:", error);
