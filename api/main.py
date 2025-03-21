@@ -14,19 +14,24 @@ mydb = mysql.connector.connect(
 )
 
 class Alertas(BaseModel):
+    id_caso: int
     id_medicion: int
-    tipo_alerta: str
-    estado: str
     gestionado_por: int
+    estado: str
+    
+class Casos(BaseModel):
+    nombre: str
+    descripcion: str
+    solucion: str
 
 class Dispositivos(BaseModel):
     nombre: str
     estado: str
 
 class Mediciones(BaseModel):
-    id_dispositivo: int
-    tipo_medicion: str
-    valor: float
+    co: float
+    temperatura: float
+    humedad: float
 
 class Usuarios(BaseModel):
     usuario: str
@@ -46,11 +51,12 @@ def listadoalertas():
         for data in respuesta:
             contenido = {
                 "id_alerta": data[0],
-                "id_medicion": data[1],
-                "tipo_alerta": data[2],
-                "estado": data[3],
-                "gestionado_por": data[4],
-                "fecha_hora": data[5]
+                "id_caso": data[1],
+                "id_medicion": data[2],
+                "gestionado_por": data[3],
+                "zona": data[4],
+                "fecha_hora": data[5],
+                "estado": data[6]
             }
             payload.append(contenido)
             contenido = {}
@@ -58,6 +64,30 @@ def listadoalertas():
         json_data = jsonable_encoder(payload)
         return {"listado": json_data}
     except (Exception) as error:
+        return {"resultado": error}
+
+@app.get("/listadocasos")
+def listadocasos():
+    try:
+        cursor = mydb.cursor()
+        cursor.execute("SELECT * FROM casos")
+        respuesta = cursor.fetchall()
+        cursor.close()
+        payload = []
+        contenido = {}
+        for data in respuesta:
+            contenido = {
+                "id_caso": data[0],
+                "nombre": data[1],
+                "descripcion": data[2],
+                "solucion": data[3]
+            }
+            payload.append(contenido)
+            contenido = {}
+        print(payload)
+        json_data = jsonable_encoder(payload)
+        return {"Listado": json_data}
+    except Exception as error:
         return {"resultado": error}
     
 @app.get("/listadodispositivos")
@@ -95,10 +125,14 @@ def listadomediciones():
         for data in respuesta:
             contenido = {
                 "id_medicion": data[0],
-                "id_dispositivo": data[1],
-                "tipo_medicion": data[2],
-                "valor": data[3],
-                "fecha_hora": data[4]
+                "zona": data[1],
+                "co": data[2],
+                "unidad_co": data[3],
+                "temperatura": data[4],
+                "unidad_temp": data[5],
+                "humedad": data[6],
+                "unidad_hum": data[7],
+                "fecha_hora": data[8]
             }
             payload.append(contenido)
             contenido = {}
@@ -134,14 +168,14 @@ def listadousuarios():
         return {"resultado": error}
     
 @app.post("/añadiralerta")
-def añadiralerta(nuevaalerta: Alertas):
+def añadiralerta(nuevaalerta: Alertas, caso: Casos):
     try:
+        id_caso = nuevaalerta.id_caso
         id_medicion = nuevaalerta.id_medicion
-        tipo_alerta = nuevaalerta.tipo_alerta
-        estado = nuevaalerta.estado
         gestionado_por = nuevaalerta.gestionado_por
+        estado = nuevaalerta.estado
         cursor = mydb.cursor()
-        cursor.execute("INSERT INTO alertas(id_medicion, tipo_alerta, estado, gestionado_por) VALUES(%s, %s, %s, %s)", (id_medicion, tipo_alerta, estado, gestionado_por))
+        cursor.execute("INSERT INTO alertas(id_caso, id_medicion, gestionado_por, estado) VALUES(%s, %s, %s, %s)", (id_caso, id_medicion, gestionado_por, estado))
         mydb.commit()
         cursor.close()
         return{"información": "Alerta registrada exitosamente"}
@@ -164,11 +198,11 @@ def añadirdispositivo(nuevodispositivo: Dispositivos):
 @app.post("/añadirmedicion")
 def añadirmedicion(nuevamedicion: Mediciones):
     try:
-        id_dispositivo = nuevamedicion.id_dispositivo
-        tipo_medicion = nuevamedicion.tipo_medicion
-        valor = nuevamedicion.valor
+        co = nuevamedicion.co
+        temperatura = nuevamedicion.temperatura
+        humedad = nuevamedicion.humedad
         cursor = mydb.cursor()
-        cursor.execute("INSERT INTO mediciones(id_dispositivo, tipo_medicion, valor) VALUES(%s, %s, %s)", (id_dispositivo, tipo_medicion, valor))
+        cursor.execute("INSERT INTO mediciones(co, temperatura, humedad) VALUES(%s, %s, %s)", (co, temperatura, humedad))
         mydb.commit()
         cursor.close()
         return{"información": "Medición registrada exitosamente"}
