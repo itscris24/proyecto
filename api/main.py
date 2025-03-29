@@ -3,8 +3,17 @@ from fastapi import FastAPI
 import mysql.connector
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 mydb = mysql.connector.connect(
     host = "localhost",
