@@ -1,33 +1,29 @@
 const ingresar = async () => {
-    let usuarioInput = document.getElementById("Usuario").value.trim();
-    let contraseñaInput = document.getElementById("Contraseña").value.trim();
+    let usuarioInput = document.getElementById("Usuariotxt").value.trim();
+    let contraseñaInput = document.getElementById("Contraseñatxt").value.trim();
 
-    try {
-        let respuesta = await fetch("https://script.google.com/macros/s/AKfycbwqCBiNoYkK35jRj_RhnnoTZaswE2Hh6Zf5_uWS_VQaoxXDs-hgi5RsATe7-H8VH1kJ/exec");
-        let usuarios = await respuesta.json();
+    axios.get('http://127.0.0.1:8000/listadousuarios')
+    .then(response => {
+        let usuarios = response.data.listado;
+        console.log("Usuarios encontrados desde la API:", usuarios);
 
-        console.log("Usuarios cargados desde API:", usuarios); // 🔍 Verifica los datos en la consola
-
-        // 💡 Asegurar que los valores sean comparables
         let usuarioEncontrado = usuarios.find(user =>
-            String(user.usuario).trim() === usuarioInput && 
+            String(user.usuario).trim() === usuarioInput &&
             String(user.contraseña).trim() === contraseñaInput
         );
-
+        
         if (usuarioEncontrado) {
-            alert(`Bienvenido, ${usuarioEncontrado.usuario}. Rol: ${usuarioEncontrado.rol}`);
+            alert(`Bienvenido, ${usuarioEncontrado.usuario}. Rol: ${usuarioEncontrado.tipo_usuario}`)
 
-            // Guardar usuario en localStorage
             localStorage.setItem("usuario", JSON.stringify(usuarioEncontrado));
             window.location.href = "html/iniciouser.html"
             limpiar();
-
-        } else {
-            alert("Usuario o contraseña incorrectos.");
+        }else{
+            alert("Ususario o contraseña incorrectos.");
         }
-    } catch (error) {
-        console.error("Error al obtener usuarios:", error);
-    }
+    }).catch(error =>{
+        console.log(error);
+    });
 };
 
 
@@ -42,14 +38,11 @@ const mostrarUsuario = () => {
         // Mostrar nombre de usuario en el header
         document.getElementById("user-info").textContent = `Bienvenido, ${usuario.usuario}`;
         
-        // Mostrar/ocultar el menú de administración dependiendo del rol
-        let menuAdministracion = document.getElementById("Administración");
-
+        // Ocultar la opción de "Administración" si no es Administrador
+        let menuAdministracion = document.querySelector("a[href='administracion.html']").parentElement;
         if (menuAdministracion) {
-            if (usuario.rol === "Usuario") {
+            if (usuario.tipo_usuario !== "Administrador") {
                 menuAdministracion.style.display = "none";
-            } else if (usuario.rol === "Administrador") {
-                menuAdministracion.style.display = "block";
             }
         }
     }
@@ -58,6 +51,6 @@ const mostrarUsuario = () => {
 mostrarUsuario();
 
 const limpiar = () => {
-    document.getElementById("Usuario").value = "";
-    document.getElementById("Contraseña").value = "";
+    document.getElementById("Usuariotxt").value = "";
+    document.getElementById("Contraseñatxt").value = "";
 }

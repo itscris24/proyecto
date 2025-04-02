@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 import mysql.connector
 from fastapi.encoders import jsonable_encoder
+import mysql.connector.cursor
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -177,7 +178,7 @@ def listadousuarios():
         return {"resultado": error}
     
 @app.post("/añadiralerta")
-def añadiralerta(nuevaalerta: Alertas, caso: Casos):
+def añadiralerta(nuevaalerta: Alertas):
     try:
         id_caso = nuevaalerta.id_caso
         id_medicion = nuevaalerta.id_medicion
@@ -232,3 +233,168 @@ def añadirusuario(nuevousuario: Usuarios):
         return{"información": "Usuario registrado exitosamente"}
     except Exception as error:
         return {"resultado": error}
+    
+@app.post("/añadircaso")
+def añadircaso(nuevocaso: Casos):
+    try:
+        nombre = nuevocaso.nombre
+        descripcion = nuevocaso.descripcion
+        solucion = nuevocaso.solucion
+        cursor = mydb.cursor()
+        cursor.execute("INSERT INTO casos(nombre, descripcion, solucion) VALUES(%s, %s, %s)", (nombre, descripcion, solucion))
+        mydb.commit()
+        cursor.close()
+        return{"información": "Caso registrado exitosamente"}
+    except Exception as error:
+        return {"resultado": error}
+    
+@app.delete("/eliminaralerta/{id_alerta}")
+def eliminarAlerta (id_alerta):
+    try:
+        cursor = mydb.cursor()
+        cursor.execute('DELETE FROM alertas WHERE id_alerta = %s', (id_alerta,))
+        mydb.commit()
+        cursor.close()
+        return {"Información": "Alerta eliminada exitosamente"}
+    except Exception as error:
+        return {"Resultado": error}
+    
+@app.delete("/eliminarcaso/{id_caso}")
+def eliminarAlerta (id_caso):
+    try:
+        cursor = mydb.cursor()
+        cursor.execute('DELETE FROM casos WHERE id_caso = %s', (id_caso,))
+        mydb.commit()
+        cursor.close()
+        return {"Información": "Caso eliminado exitosamente"}
+    except Exception as error:
+        return {"Resultado": error}
+    
+@app.delete("/eliminardispositivo/{id_dispositivo}")
+def eliminarAlerta (id_dispositivo):
+    try:
+        cursor = mydb.cursor()
+        cursor.execute('DELETE FROM dispositivos WHERE id_dispositivo = %s', (id_dispositivo,))
+        mydb.commit()
+        cursor.close()
+        return {"Información": "Dispositivo eliminado exitosamente"}
+    except Exception as error:
+        return {"Resultado": error}
+    
+@app.delete("/eliminarusuario/{id_usuario}")
+def eliminarAlerta (id_usuario):
+    try:
+        cursor = mydb.cursor()
+        cursor.execute('DELETE FROM usuarios WHERE id_usuario = %s', (id_usuario,))
+        mydb.commit()
+        cursor.close()
+        return {"Información": "Usuario eliminado exitosamente"}
+    except Exception as error:
+        return {"Resultado": error}
+    
+@app.delete("/eliminarmedicion/{id_medicion}")
+def eliminarAlerta (id_medicion):
+    try:
+        cursor = mydb.cursor()
+        # Eliminar primero las alertas relacionadas
+        cursor.execute("DELETE FROM alertas WHERE id_medicion = %s", (id_medicion,))
+        mydb.commit()
+        
+        # Ahora eliminar la medición
+        cursor.execute("DELETE FROM mediciones WHERE id_medicion = %s", (id_medicion,))
+        mydb.commit()
+        
+        cursor.close()
+        return {"Información": "Medicion eliminada exitosamente"}
+    except Exception as error:
+        return {"Resultado": error}
+    
+@app.get("/totalalertas")
+def totalaalertas():
+    try:
+        cursor = mydb.cursor()
+        cursor.execute("SELECT COUNT(*) as total from alertas")
+        resultado = cursor.fetchall()
+        cursor.close()
+        payload = []
+        contenido ={}
+        for data in resultado:
+            contenido = {"Total": data[0]}
+            payload.append(contenido)
+            contenido = {}
+        return jsonable_encoder(payload)
+    except Exception as error:
+        print(error)
+        return jsonable_encoder({"Informacion": error})
+    
+@app.get("/totalcasos")
+def totalcasos():
+    try:
+        cursor = mydb.cursor()
+        cursor.execute("SELECT COUNT(*) as total from casos")
+        resultado = cursor.fetchall()
+        cursor.close()
+        payload = []
+        contenido ={}
+        for data in resultado:
+            contenido = {"Total": data[0]}
+            payload.append(contenido)
+            contenido = {}
+        return jsonable_encoder(payload)
+    except Exception as error:
+        print(error)
+        return jsonable_encoder({"Informacion": error})
+    
+@app.get("/totaldispositivos")
+def totaldispositivos():
+    try:
+        cursor = mydb.cursor()
+        cursor.execute("SELECT COUNT(*) as total from dispositivos")
+        resultado = cursor.fetchall()
+        cursor.close()
+        payload = []
+        contenido ={}
+        for data in resultado:
+            contenido = {"Total": data[0]}
+            payload.append(contenido)
+            contenido = {}
+        return jsonable_encoder(payload)
+    except Exception as error:
+        print(error)
+        return jsonable_encoder({"Informacion": error})
+    
+@app.get("/totalmediciones")
+def totalmediciones():
+    try:
+        cursor = mydb.cursor()
+        cursor.execute("SELECT COUNT(*) as total from mediciones")
+        resultado = cursor.fetchall()
+        cursor.close()
+        payload = []
+        contenido ={}
+        for data in resultado:
+            contenido = {"Total": data[0]}
+            payload.append(contenido)
+            contenido = {}
+        return jsonable_encoder(payload)
+    except Exception as error:
+        print(error)
+        return jsonable_encoder({"Informacion": error})
+    
+@app.get("/totalusuarios")
+def totalusuarios():
+    try:
+        cursor = mydb.cursor()
+        cursor.execute("SELECT COUNT(*) as total from usuarios")
+        resultado = cursor.fetchall()
+        cursor.close()
+        payload = []
+        contenido ={}
+        for data in resultado:
+            contenido = {"Total": data[0]}
+            payload.append(contenido)
+            contenido = {}
+        return jsonable_encoder(payload)
+    except Exception as error:
+        print(error)
+        return jsonable_encoder({"Informacion": error})

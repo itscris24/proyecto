@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alertas y Notificaciones</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
+
 <body class="vh-100">
     <nav class="navbr navbar-expand-lg bg-white rounded">
         <div class="container-fluid d-flex justify-content-between p-4">
@@ -20,7 +24,7 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <span class="text-success fw-bold fs-2" id="user-info">Bienvenido, Admin1</span>
+                    <span class="text-success fw-bold fs-2" id="user-info"></span>
                 </li>
             </ul>
         </div>
@@ -40,7 +44,7 @@
                         <a class="nav-link" href="#">Alertas y Notificaciones</a>
                     </li>
                     <li class="nav-item px-5">
-                        <a class="nav-link" href="/html/alertasynot.html">Administracion</a>
+                        <a class="nav-link" href="administracion.html">Administracion</a>
                     </li>
                     <li class="nav-item px-5">
                         <a class="nav-link" href="contactoysopor.html">Contacto y Soporte</a>
@@ -58,113 +62,102 @@
             <div class="row py-5">
                 <div class="col-xl-6 col-lg-6">
                     <h2>Registro de Alertas</h2>
-            
-        
+
+
                     <p>
-                        Este sistema opera en tiempo real, procesando datos provenientes de sensores que miden temperatura, humedad, presencia de gases inflamables como el monóxido de carbono y otros factores determinantes. Al detectar valores que superan umbrales de riesgo predefinidos, el sistema genera alertas automáticas, clasificadas según su nivel de criticidad.
-        
-                        Además, SMAIF mantiene un historial de alertas pasadas, lo que permite un análisis detallado de patrones de riesgo y facilita la toma de decisiones basadas en datos históricos. Esta funcionalidad no solo optimiza la respuesta ante emergencias, sino que también contribuye a la planificación estratégica para la prevención de incendios en el futuro.
+                        Este sistema opera en tiempo real, procesando datos provenientes de sensores que miden
+                        temperatura, humedad, presencia de gases inflamables como el monóxido de carbono y otros
+                        factores determinantes. Al detectar valores que superan umbrales de riesgo predefinidos, el
+                        sistema genera alertas automáticas, clasificadas según su nivel de criticidad.
+
+                        Además, SMAIF mantiene un historial de alertas pasadas, lo que permite un análisis detallado de
+                        patrones de riesgo y facilita la toma de decisiones basadas en datos históricos. Esta
+                        funcionalidad no solo optimiza la respuesta ante emergencias, sino que también contribuye a la
+                        planificación estratégica para la prevención de incendios en el futuro.
                     </p>
-                    <h3>Alertas Activas</h3>
-                    <div class="table-responsive rounded">
-                        <table class="table table-bordered border-success" id="tabla2">
-                            <thead>
+
+                    <div class="table-responsive rounded px-4">
+                        <h3>Alertas Activas</h3>
+                        <table class="table table-bordered rounded" id="tablaalertas">
+                            <thead class="fw-bold">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Fecha</th>
-                                    <th>Nivel de Riesgo</th>
-                                    <th>Ubicación</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
+                                    <td>ID Alerta</td>
+                                    <td>ID Caso</td>
+                                    <td>ID Medición</td>
+                                    <td>Gestionado Por</td>
+                                    <td>Zona</td>
+                                    <td>Fecha y Hora</td>
+                                    <td>Estado</td>
                                 </tr>
                             </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-            
-                    <h3>Alertas Pasadas</h3>
-                    <div class="table-responsive rounded">
-                        <table class="table table-bordered border-success" id="tabla3">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Fecha</th>
-                                    <th>Nivel de Riesgo</th>
-                                    <th>Ubicación</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
+                            <tbody>
+                            </tbody>
                         </table>
                     </div>
                     <p>
-                        El uso de un sistema de alerta eficiente permite una respuesta rápida ante emergencias, optimiza los recursos de los equipos de rescate y reduce significativamente el impacto ambiental y social de los incendios forestales. Además, al contar con un registro histórico de notificaciones, se pueden analizar patrones y mejorar las estrategias de prevención.
-        
-                        Con estas funcionalidades, SMAIF se convierte en una herramienta clave para la gestión proactiva del riesgo de incendios, protegiendo tanto el medio ambiente como a las comunidades vulnerables.
+                        El uso de un sistema de alerta eficiente permite una respuesta rápida ante emergencias, optimiza
+                        los recursos de los equipos de rescate y reduce significativamente el impacto ambiental y social
+                        de los incendios forestales. Además, al contar con un registro histórico de notificaciones, se
+                        pueden analizar patrones y mejorar las estrategias de prevención.
+
+                        Con estas funcionalidades, SMAIF se convierte en una herramienta clave para la gestión proactiva
+                        del riesgo de incendios, protegiendo tanto el medio ambiente como a las comunidades vulnerables.
                     </p>
                 </div>
                 <div class="col-xl-6 col-lg-6">
-                    <h2>Sistemas de Clasificación de Riesgos</h2>
-                    <p>El sistema de clasificación de riesgos en SMAIF permite evaluar el nivel de amenaza de incendio en tiempo real, basándose en el análisis de datos ambientales recolectados por sensores.</p>
-        
-                    <h3>Categorías de Riesgo</h3>
-                    <div class="table-responsive rounded">
-                        <table class="table table-bordered border-success" id="tabla1">
-                            <thead>
-                                <tr>
-                                    <th>Nivel de Riesgo</th>
-                                    <th>Descripción</th>
-                                    <th>Condiciones Ambientales</th>
-                                    <th>Acciones Recomendadas</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                    <h2>Cálculo del Nivel de Riesgo</h2>
-        
-                    <p>
-                        Para determinar el nivel de riesgo, el sistema utiliza un algoritmo de puntuación basado en los valores detectados por los sensores. Se asignan puntajes a cada variable y el riesgo se clasifica según un umbral total.
-                    </p>
-        
-                    <h3>Ejemplo de Puntuación por Variable</h3>
-                    <div class="table-responsive rounded">
-                        <table class="table table-bordered border-success" id="tabla4">
-                            <thead>
-                                <tr>
-                                    <th>Variable</th>
-                                    <th>Bajo (1 punto)</th>
-                                    <th>Moderado (2 puntos)</th>
-                                    <th>Alto (3 puntos)</th>
-                                    <th>Crítico (4 puntos)</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                    
-        
-                    <h3>Nivel de Riesgo Según Puntuación</h3>
-                    <ul>
-                        <li><strong>1 - 4 puntos →</strong> Bajo 🟢</li>
-                        <li><strong>5 - 7 puntos →</strong> Medio 🟡</li>
-                        <li><strong>8 - 10 puntos →</strong> Alto 🟠</li>
-                        <li><strong>11 - 12 puntos →</strong> Crítico 🔴</li>
-                    </ul>
+                    <h3>Evaluación Dinámica del Riesgo de Incendios</h3>
+                    <p>El Sistema de Monitorio Ambiental de Incendios Forestales (SMAIF) no solo detecta condiciones
+                        peligrosas en tiempo real, sino que también evalúa la probabilidad de propagación del fuego mediante
+                        un análisis integral de múltiples factores ambientales. En lugar de una clasificación estática del
+                        riesgo, SMAIF emplea un índice dinámico de propagación basado en la interacción entre temperatura,
+                        humedad, velocidad del viento y concentración de gases inflamables.
+    
+                        A través de algoritmos avanzados de procesamiento de datos, el sistema calcula una puntuación de
+                        riesgo que varía en función de las condiciones detectadas y su evolución en el tiempo. Este enfoque
+                        permite una evaluación más precisa, ya que no solo considera valores aislados, sino también
+                        tendencias y anomalías en los registros ambientales.</p>
+
+                    <h3>Factores Clave en la Evaluación del Riesgo</h3>
+                    <p>Para calcular el nivel de peligro, SMAIF analiza las siguientes variables:
+
+                        Temperatura y humedad relativa: Una combinación de alta temperatura y baja humedad aumenta la
+                        inflamabilidad de la vegetación.
+    
+                        Velocidad y dirección del viento: El viento no solo propaga el fuego, sino que también influye en la
+                        intensidad de las llamas y en la dificultad para controlar el incendio.
+    
+                        Concentración de gases combustibles: La presencia de monóxido de carbono (CO), dióxido de carbono
+                        (CO₂) y otros gases inflamables puede indicar procesos de combustión incipientes o un entorno
+                        propenso a la ignición.
+    
+                        Historial de alertas y condiciones previas: Los datos históricos permiten identificar patrones de
+                        riesgo en determinadas áreas y mejorar las estrategias de prevención.</p>
+
+                    <h3>Modelo Predictivo de Riesgo</h3>
+                    <p>Además de generar alertas en tiempo real, SMAIF incorpora un modelo predictivo que analiza la
+                        evolución de los incendios en función de datos históricos y tendencias climáticas. A través del uso
+                        de inteligencia artificial y machine learning, el sistema puede anticipar escenarios de alto riesgo
+                        con horas o incluso días de anticipación, permitiendo una planificación proactiva de las medidas de
+                        prevención.
+    
+                        Este enfoque innovador no solo optimiza la respuesta ante emergencias, sino que también facilita la
+                        toma de decisiones estratégicas para reducir la frecuencia e impacto de los incendios forestales. Al
+                        proporcionar un análisis detallado y dinámico del riesgo, SMAIF se convierte en una herramienta
+                        clave para la protección del medio ambiente y la seguridad de las comunidades vulnerables.</p>
                 </div>
             </div>
-        </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/index.js"></script>
     <script src="../js/administración.js"></script>
     <script src="../js/proteger.js"></script>
-    <script src="../js/tablas.js"></script>
+    <script src="../js/alertasuser.js"></script>
     <script src="../js/cerrarsesion.js"></script>
 
-     <footer class="footer text-white bg-success py-4 align-items-center">
+    <footer class="footer text-white bg-success py-4 align-items-center">
         <p>&copy; 2025 SMAIF - Todos los derechos reservados. Contacto: <u>SmaifWeb@gmail.com</u></p>
     </footer>
 </body>
+
 </html>

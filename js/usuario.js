@@ -1,6 +1,6 @@
 const consultar_usuarios = async () => {
     axios.get('http://127.0.0.1:8000/listadousuarios')
-    .then(function (response){
+    .then(response => {
         console.log(response.data);
         let tabla = document.getElementById("tablausuarios");
         
@@ -18,11 +18,11 @@ const consultar_usuarios = async () => {
             celda4 = nuevaFila.insertCell(4);
             celda4.innerHTML = usuarios[i].correo;
             celda5 = nuevaFila.insertCell(5);
-            celda5.innerHTML = '<a class="btn btn-warning mx-5" onClick="onEdit(this)">Editar</a> <a class="btn btn-danger" onClick="onDelete(this)">Eliminar</a>';
+            celda5.innerHTML = '<a class="btn btn-outline-success mx-5" onClick="onEdit(this)">Editar</a> <a class="btn btn-danger" onClick="onDelete(this)">Eliminar</a>';
         }
         
         
-    }).catch(function (error){
+    }).catch(error => {
         console.log(error);
     });
 }
