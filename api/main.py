@@ -1,5 +1,5 @@
 
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 import mysql.connector
 from fastapi.encoders import jsonable_encoder
 import mysql.connector.cursor
@@ -205,14 +205,11 @@ def añadirdispositivo(nuevodispositivo: Dispositivos):
     except Exception as error:
         return {"resultado": error}
     
-@app.post("/añadirmedicion")
+@app.post("/anadirmedicion", status_code=status.HTTP_201_CREATED)
 def añadirmedicion(nuevamedicion: Mediciones):
     try:
-        co = nuevamedicion.co
-        temperatura = nuevamedicion.temperatura
-        humedad = nuevamedicion.humedad
         cursor = mydb.cursor()
-        cursor.execute("INSERT INTO mediciones(co, temperatura, humedad) VALUES(%s, %s, %s)", (co, temperatura, humedad))
+        cursor.execute("INSERT INTO mediciones(co, temperatura, humedad) VALUES(%s, %s, %s)", (nuevamedicion.co, nuevamedicion.temperatura, nuevamedicion.humedad))
         mydb.commit()
         cursor.close()
         return{"información": "Medición registrada exitosamente"}
